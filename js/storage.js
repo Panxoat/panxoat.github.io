@@ -22,31 +22,33 @@ function setTodoList(todoList) {
 }
 
 function deleteTodo(e) {
-  const list = e.target.parentNode;
-  const span = list.firstChild;
+  const span = e.target.nextElementSibling;
 
   const prevTodoList = getTodoList();
   const filteredTodo = prevTodoList.filter((todo_) => todo_ !== span.innerText);
 
   setTodoList(filteredTodo);
-  list.remove();
+
+  span.style.textDecoration = "line-through";
 }
 
 function paintTodo(todo) {
   const listElement = document.createElement("li");
   const spanElement = document.createElement("span");
-  const todoRemoveButton = document.createElement("button");
-  todoRemoveButton.setAttribute("type", "button");
+  const todoCheckbox = document.createElement("input");
+  todoCheckbox.setAttribute("type", "checkbox");
+  todoCheckbox.style.width = "20px";
+  todoCheckbox.style.height = "20px";
 
-  todoRemoveButton.addEventListener("click", (e, todo) => {
+  todoCheckbox.addEventListener("click", (e, todo) => {
     return deleteTodo(e, todo);
   });
 
+  listElement.appendChild(todoCheckbox);
+
   spanElement.innerText = todo;
   listElement.appendChild(spanElement);
-  todoRemoveButton.append("X");
 
-  listElement.appendChild(todoRemoveButton);
   todoListContainer.appendChild(listElement);
 }
 

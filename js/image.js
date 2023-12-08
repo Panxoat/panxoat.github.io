@@ -1,4 +1,7 @@
 const article = document.querySelector("article");
+
+const greeting = document.getElementById("greeting");
+
 const creator = document.getElementById("creator");
 const rawUrl = document.getElementById("raw_url");
 
@@ -30,6 +33,20 @@ const imgList = [
   },
 ];
 
+function setIntroduction() {
+  const date = new Date();
+
+  if (6 < date.getHours() && date.getHours() < 12) {
+    return "Good Morning, User.";
+  } else if (12 <= date.getHours() && date.getHours() < 18) {
+    return "Good Afternoon, User.";
+  } else {
+    return "Good Night, User.";
+  }
+}
+
+greeting.innerText = setIntroduction();
+
 const img = imgList[Math.floor(Math.random() * imgList.length)];
 
 article.style.backgroundImage = `url(${img.url})`;
@@ -37,6 +54,6 @@ article.style.backgroundRepeat = "no-repeat";
 article.style.backgroundSize = "cover";
 article.style.backgroundPosition = "center center";
 
-creator.innerHTML = `By ${img.creator}`;
+creator.innerHTML = `photo by ${img.creator}`;
 
 rawUrl.setAttribute("href", img.link);

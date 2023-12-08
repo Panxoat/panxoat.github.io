@@ -18,6 +18,12 @@ article {
   justify-content: center;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 h1,
 h2 {
   margin: 0;
@@ -37,9 +43,45 @@ h2 {
 
 #title {
   display: flex;
+  flex: 1 1;
+
   flex-direction: column;
   justify-content: center;
   column-gap: 10px;
+}
+
+#caption {
+  font-size: 30px;
+  color: white;
+  text-align: center;
+}
+
+input {
+  background-color: transparent;
+
+  border: none;
+  border-bottom: 3px solid #ffffff;
+  outline: none;
+
+  color: white;
+
+  font-size: 20px;
+  text-align: center;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+}
+
+li {
+  color: white;
+  list-style: none;
+
+  font-size: 30px;
 }
 
 footer {
@@ -48,6 +90,8 @@ footer {
 
   display: flex;
   justify-content: space-between;
+
+  padding-bottom: 20px;
 }
 
 footer span,
