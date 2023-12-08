@@ -18,6 +18,36 @@ article {
   justify-content: center;
 }
 
+#weather_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+
+  padding: 0 15px;
+  padding-top: 20px;
+
+  align-items: flex-end;
+
+  color: white;
+}
+
+#weather_temperature_container {
+  display: flex;
+  align-items: center;
+
+  column-gap: 5px;
+}
+
+#temperature {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+#weather {
+  font-size: 12px;
+}
+
 form {
   display: flex;
   flex-direction: column;
