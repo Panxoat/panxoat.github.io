@@ -11,14 +11,18 @@
       <section id="title">
         <h1 id="clock">00:00</h1>
         <h2 id="greeting"></h2>
-        <form>
+        <form id="before_login_form">
+          <p id="before_login_caption">What is your name?</p>
+          <input type="text" id="login_input" value="" />
+        </form>
+        <form id="after_login_form">
           <p id="caption">What is your main focus for today?</p>
           <input type="text" id="todo_input" value="" />
         </form>
         <ul id="todo_list_container"></ul>
       </section>
       <footer>
-        <span id="creator">blar blar</span>
+        <span id="creator"></span>
         <span id="mantra"
           >“Don’t postpone joy until you have learned all of your lessons. Joy
           is your lesson.”</span
@@ -46,7 +50,7 @@
       </footer>
     </article>
   </body>
-  <script src="js/index.js"></script>
+  <script src="js/login.js"></script>
   <script src="js/clock.js"></script>
   <script src="js/storage.js"></script>
   <script src="js/image.js"></script>

@@ -36,13 +36,23 @@ const imgList = [
 function setIntroduction() {
   const date = new Date();
 
-  if (6 < date.getHours() && date.getHours() < 12) {
-    return "Good Morning, User.";
-  } else if (12 <= date.getHours() && date.getHours() < 18) {
-    return "Good Afternoon, User.";
-  } else {
-    return "Good Night, User.";
+  const user = getUser();
+
+  if (user) {
+    if (6 < date.getHours() && date.getHours() < 12) {
+      return `Good Morning, ${user}.`;
+    } else if (12 <= date.getHours() && date.getHours() < 18) {
+      return `Good Afternoon, ${user}.`;
+    } else {
+      return `Good Night, ${user}.`;
+    }
   }
+
+  return "";
+}
+
+function getUser() {
+  return window.localStorage.getItem("user");
 }
 
 greeting.innerText = setIntroduction();

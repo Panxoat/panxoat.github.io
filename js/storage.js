@@ -1,16 +1,31 @@
-const form = document.querySelector("form");
+const form = document.getElementById("after_login_form");
+const beforeLoginform = document.getElementById("before_login_form");
 const todoInput = document.getElementById("todo_input");
 const todoListContainer = document.getElementById("todo_list_container");
 
 const todoKey = `${new Date().getMonth() + 1}/${new Date().getDay()}`;
 
 window.onload = function () {
-  const prevTodoList = getTodoList();
+  const user = getUser();
 
-  prevTodoList.forEach((todo) => {
-    paintTodo(todo);
-  });
+  if (!user) {
+    beforeLoginform.style.display = "flex";
+    form.style.display = "none";
+  } else {
+    beforeLoginform.style.display = "none";
+    form.style.display = "flex";
+
+    const prevTodoList = getTodoList();
+
+    prevTodoList.forEach((todo) => {
+      paintTodo(todo);
+    });
+  }
 };
+
+function getUser() {
+  return window.localStorage.getItem("user");
+}
 
 function getTodoList() {
   const prevTodo = JSON.parse(window.localStorage.getItem(todoKey) || "[]");

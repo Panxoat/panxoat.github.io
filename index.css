@@ -50,6 +50,7 @@ h2 {
   column-gap: 10px;
 }
 
+#before_login_caption,
 #caption {
   font-size: 30px;
   color: white;
@@ -65,7 +66,7 @@ input {
 
   color: white;
 
-  font-size: 20px;
+  font-size: 40px;
   text-align: center;
 }
 
