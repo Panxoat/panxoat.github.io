@@ -30,8 +30,10 @@ function onGeoOk(position) {
   getWeatherAPI(lat, lon);
 }
 
-function onGeoError() {
-  console.error("We can't provide weather info to you");
+function onGeoError(e) {
+  console.error("We can't provide weather info to you", e);
 }
 
-navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);
+navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError, {
+  timeout: 10000,
+});
